@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    
+
+    <div id="app">
+        <!--<span @click="title= 'Текст'">Текст</span>-->
+        <!--<span @mouseover="title='Mouse'">Текст</span>-->
+        <span @mouseover="changeText">Текст</span>
+        <p>{{ title }}</p>
+        <p :class="styleCSS">Цвет: {{ styleCSS }}</p>
+        <!--<p v-bind:class="styleCSS">Цвет: {{ styleCSS }}</p>-->
+        <input type="text" v-on:input="styleCSS=$event.target.value">
+    </div>
+    <br> App1
+    <br>
+    <br>
+    
+    <div id="app1">
+        <input type="text" @input="increment($event.target.value)">
+        <p>{{ value }}</p>
+        <p>{{ doubleValue }}</p>
+    </div>
+   <br>
+   <br>
+   <br>
+    <div id="app2">
+        <button v-on:click="show= !show">Скрыть/Показать</button>
+        <p v-if="show">Текст, который может стать невидимым</p>
+        <!--<p v-show="show">Текст, который может стать невидимым</p>-->
+        <p v-else>Текст 2</p>
+
+        <ul>
+            <li v-for="(car, i) in cars">{{ i + 1 }} - {{ car.model }}, скорость: {{ car.speed }}</li>
+        </ul>
+    </div>
+
+
+    <script src="main.js"></script>
+</body>
+</html>
